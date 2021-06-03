@@ -7,7 +7,6 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
-  
 
   const onSubmit = (text) => {
     setTodoList([...todoList, { text: text, completed: false, id: uuid() }]);
@@ -18,6 +17,7 @@ function App() {
     newTodos[index].completed = !newTodos[index].completed;
     setTodoList(newTodos);
   };
+
   const editHandler = (todoId, text) => {
     const updatedTodos = [...todoList].map((todo) => {
       if (todo.id === todoId) {
@@ -27,6 +27,7 @@ function App() {
     });
     setTodoList(updatedTodos);
   };
+
   const deleteHandler = (todoId) => {
     setTodoList(todoList.filter((el) => el.id !== todoId));
   };
